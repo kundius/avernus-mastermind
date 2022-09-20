@@ -1,0 +1,158 @@
+@import 'responsive'
+
+.footer
+  background: #0a0404
+  padding: 30px 0
+
+.footer-grid
+  justify-content: space-between
+  display: flex
+  +below(small)
+    flex-direction: column
+    align-items: center
+
+.footer-first-cell
+  +below(small)
+    margin-top: 30px
+    order: 1
+
+.footer-second-cell
+  +below(small)
+    // width: 100%
+    margin-top: 30px
+
+.footer-third-cell
+  // +below(small)
+  //   width: 100%
+.footer__first
+  max-width: 280px
+  +below(small)
+    text-align: center
+
+.footer__logo
+  display: block
+  margin: -14px auto 11px
+  width: 75px
+  height: 52px
+
+.footer__sitename
+  text-shadow: 0.5px 0.9px 1px rgba(0,0,0,.8)
+  font-size: 24px
+  color: #f3c82f
+  letter-spacing: -1.5px
+  margin: 10px 0 7px
+  line-height: 1
+  text-align: center
+  text-transform: uppercase
+  font-family: "times new roman", serif
+
+.footer__behalf
+  text-shadow: 0.5px 0.9px 0 rgba(0,0,0,.35)
+  color: #fdf7d3
+  font-size: 18px
+  letter-spacing: -1px
+  line-height: 1
+  text-align: center
+  text-transform: uppercase
+  font-family: "times new roman", serif
+
+.footer__copyright
+  margin: 50px auto
+  color: #fff
+  font-size: 14px
+
+.footer__creator
+  position: relative
+  padding-left: 150px
+  display: block
+  font-size: 14px
+  color: #fff
+  opacity: .8
+  text-decoration: none
+
+.footer__creator:before
+  content: ''
+  position: absolute
+  width: 136px
+  height: 35px
+  left: 0
+  top: 50%
+  margin-top: -18px
+  background: url('../images/creator.png') 50% 50% no-repeat
+
+.footer__menu
+  padding: 0
+  margin: 0 0 40px
+  +below(small)
+    text-align: center
+
+.footer__menu li
+  list-style: none
+  margin-bottom: 20px
+
+.footer__menu li a
+  display: inline-block
+  padding: 2px 6px
+  border-radius: 4px
+  font-size: 18px
+  color: #fff
+  text-decoration: none
+
+.footer__menu li a:hover
+  text-decoration: none
+  background-color: #5c5c5c
+
+.footer__contacts
+  font-size: 18px
+  color: #fff
+  +below(small)
+    text-align: center
+
+.footer__contacts span
+  display: block
+  margin: 10px 0
+
+.footer__contacts a
+  color: #fff
+
+.footer-socials
+  margin: 15px 0
+
+.footer-socials a
+  display: inline-block
+  color: #fff
+  border: 1px solid #fff
+  width: 32px
+  height: 32px
+  line-height: 32px
+  text-align: center
+  font-size: 16px
+  opacity: .6
+  border-radius: 100%
+
+.footer-socials a:hover
+  opacity: 1
+
+.footer-socials a svg
+  fill: currentColor
+  display: inline-block
+  vertical-align: middle
+
+.footer__buttons
+  margin: 30px -10px
+
+.footer__buttons a
+  display: inline-block
+  color: #fff
+  font-size: 18px
+  padding: 0 28px
+  line-height: 35px
+  border-radius: 20px
+  border: 1px solid #fff
+  margin: 10px
+  text-decoration: none
+
+.footer__buttons a:hover
+  color: #fff
+  text-decoration: none
+  background-color: rgba(255,255,255,.2)

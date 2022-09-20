@@ -1,0 +1,110 @@
+@import 'responsive'
+
+.modal
+  position: fixed
+  visibility: hidden
+  opacity: 0
+  max-width: 100%
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%) scale(.9)
+  z-index: 200
+  background: #fff
+  padding: 40px 45px
+  width: 560px
+  overflow: auto
+  box-sizing: border-box
+  max-width: 100%
+  max-height: 100%
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.4), 0 0 8px rgba(0, 0, 0, 0.2)
+  transition: all ease .3s
+  +below(small)
+    padding: 20px 25px
+  &._opened
+    transform: translate(-50%, -50%) scale(1)
+    visibility: visible
+    opacity: 1
+
+.modal__close
+  position: absolute
+  right: 5px
+  top: 5px
+  width: 48px
+  height: 48px
+  background: none
+  border: none
+  z-index: 20
+  padding: 0
+  cursor: pointer
+  +below(small)
+    padding: 20px 25px
+    right: 0
+    top: 0
+  &::before
+    content: ''
+    width: 40%
+    height: 2px
+    position: absolute
+    left: 50%
+    top: 50%
+    background: #b6b6b6
+    transform: rotate(-45deg) translate(-50%, -50%)
+    transform-origin: 0 0
+  &::after
+    content: ''
+    width: 40%
+    height: 2px
+    position: absolute
+    left: 50%
+    top: 50%
+    background: #b6b6b6
+    transform: rotate(45deg) translate(-50%, -50%)
+    transform-origin: 0 0
+  &:hover
+    background: #b6b6b6
+    &::before,
+    &::after
+      background: #ffffff
+
+.modal__title
+  font-size: 36px
+  letter-spacing: 0.02em
+  line-height: 1
+  color: #000000
+  font-weight: bold
+  text-align: center
+  position: relative
+  margin-bottom: 30px
+
+.modal__body
+  position: relative
+
+.modal-form
+  position: relative
+
+.modal-form__row
+  margin-top: 25px
+
+.modal-form__submit
+  width: 100%
+
+.modal-form__notice
+  text-align: center
+  font-size: 15px
+  line-height: 1.25
+  letter-spacing: 0.025em
+  a
+    text-decoration: underline
+    color: inherit
+
+.modal-form__approve
+  font-size: 15px
+  line-height: 1.25
+  display: flex
+  a
+    text-decoration: underline
+    color: inherit
+  input
+    width: 1em
+    height: 1em
+    margin-right: 0.5em

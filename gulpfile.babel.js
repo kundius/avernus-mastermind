@@ -1,73 +1,104 @@
-"use strict";
+import { series, src, dest, parallel, watch } from "gulp";
+import yargs from "yargs";
+import cleanCss from "gulp-clean-css";
+import gulpif from "gulp-if";
+import browserSync from "browser-sync";
+import dartSass from "sass";
+import gulpSass from "gulp-sass";
+import postcss from "gulp-postcss";
+import sourcemaps from "gulp-sourcemaps";
+import autoprefixer from "autoprefixer";
+import imagemin from "gulp-imagemin";
+import del from "del";
+import webpack from "webpack-stream";
+import named from "vinyl-named";
 
-import gulp from "gulp";
+const server = browserSync.create();
+const PRODUCTION = yargs.argv.prod;
+const sass = gulpSass(dartSass);
 
-const requireDir = require("require-dir"),
-    paths = {
-        views: {
-            src: [
-                "./src/views/**/*.html",
-                "./src/views/pages/*.html"
-            ],
-            dist: "./dist/",
-            watch: [
-                "./src/blocks/**/*.html",
-                "./src/views/**/*.html"
-            ]
-        },
-        styles: {
-            src: "./src/styles/main.{scss,sass}",
-            dist: "./dist/styles/",
-            watch: [
-                "./src/blocks/**/*.{scss,sass}",
-                "./src/styles/**/*.{scss,sass}"
-            ]
-        },
-        scripts: {
-            src: "./src/js/index.js",
-            dist: "./dist/js/",
-            watch: [
-                "./src/blocks/**/*.js",
-                "./src/js/**/*.js"
-            ]
-        },
-        images: {
-            src: [
-                "./src/img/**/*.{jpg,jpeg,png,gif,tiff,svg}",
-                "!./src/img/favicon/*.{jpg,jpeg,png,gif,tiff}"
-            ],
-            dist: "./dist/img/",
-            watch: "./src/img/**/*.{jpg,jpeg,png,gif,svg,tiff}"
-        },
-        sprites: {
-            src: "./src/img/sprites/*.svg",
-            dist: "./dist/img/sprites/",
-            watch: "./src/img/sprites/*.svg"
-        },
-        fonts: {
-            src: "./src/fonts/**/*.{woff,woff2}",
-            dist: "./dist/fonts/",
-            watch: "./src/fonts/**/*.{woff,woff2}"
-        },
-        favicons: {
-            src: "./src/img/favicon/*.{jpg,jpeg,png,gif}",
-            dist: "./dist/img/favicons/",
-        },
-        gzip: {
-            src: "./src/.htaccess",
-            dist: "./dist/"
-        }
-    };
+export const stylesTask = () => {
+  return src("src/styles/bundle.scss")
+    .pipe(gulpif(!PRODUCTION, sourcemaps.init()))
+    .pipe(sass().on("error", sass.logError))
+    .pipe(gulpif(PRODUCTION, postcss([autoprefixer])))
+    .pipe(gulpif(PRODUCTION, cleanCss({ compatibility: "ie8" })))
+    .pipe(gulpif(!PRODUCTION, sourcemaps.write()))
+    .pipe(dest("dist/styles"))
+    .pipe(server.stream());
+};
 
-requireDir("./gulp-tasks/");
+export const scriptsTask = () => {
+  return src("src/scripts/bundle.js")
+    .pipe(named())
+    .pipe(
+      webpack({
+        module: {
+          rules: [
+            {
+              test: /\.js$/,
+              loader: "babel-loader",
+            },
+          ],
+        },
+        mode: PRODUCTION ? "production" : "development",
+        devtool: !PRODUCTION ? "inline-source-map" : false,
+        output: {
+          filename: "[name].js",
+        },
+      })
+    )
+    .pipe(dest("dist/scripts"));
+};
 
-export { paths };
+export const imagesTask = () => {
+  return src("src/images/**/*.{jpg,jpeg,png,svg,gif}")
+    .pipe(gulpif(PRODUCTION, imagemin()))
+    .pipe(dest("dist/images"));
+};
 
-export const development = gulp.series("clean",
-    gulp.parallel(["views", "styles", "scripts", "images", "webp", "sprites", "fonts", "favicons"]),
-    gulp.parallel("serve"));
+export const fontsTask = () => {
+  return src("src/fonts/**/*.{ttf,woff,woff2}")
+    .pipe(dest("dist/fonts"));
+};
 
-export const prod = gulp.series("clean",
-    gulp.parallel(["views", "styles", "scripts", "images", "webp", "sprites", "fonts", "favicons", "gzip"]));
+export const cleanTask = () => del(["dist"]);
 
-export default development;
+export const watchTask = () => {
+  watch("src/styles/**/*.scss", stylesTask);
+  watch("src/styles/**/*.sass", stylesTask);
+  watch(
+    "src/images/**/*.{jpg,jpeg,png,svg,gif}",
+    series(imagesTask, reloadTask)
+  );
+  watch("src/fonts/**/*.{ttf,woff,woff2}", series(fontsTask, reloadTask));
+  watch("src/scripts/**/*.js", series(scriptsTask, reloadTask));
+  watch("**/*.php", reloadTask);
+};
+
+export const serveTask = (done) => {
+  server.init({
+    port: 4000,
+    server: "./"
+  });
+  done();
+};
+
+export const reloadTask = (done) => {
+  server.reload();
+  done();
+};
+
+export const dev = series(
+  cleanTask,
+  parallel(stylesTask, imagesTask, fontsTask, scriptsTask),
+  serveTask,
+  watchTask
+);
+
+export const build = series(
+  cleanTask,
+  parallel(stylesTask, imagesTask, fontsTask, scriptsTask)
+);
+
+export default dev;

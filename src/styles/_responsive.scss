@@ -1,0 +1,57 @@
+@import 'variables';
+
+@mixin above($point) {
+  @if $point == xsmall {
+    @media (min-width: #{$breakpoint-xsmall}) {
+      @content;
+    }
+  }
+  @if $point == small {
+    @media (min-width: #{$breakpoint-small}) {
+      @content;
+    }
+  }
+  @if $point == medium {
+    @media (min-width: #{$breakpoint-medium}) {
+      @content;
+    }
+  }
+  @if $point == large {
+    @media (min-width: #{$breakpoint-large}) {
+      @content;
+    }
+  }
+  @if $point == xlarge {
+    @media (min-width: #{$breakpoint-xlarge}) {
+      @content;
+    }
+  }
+}
+
+@mixin below($point) {
+  @if $point == xsmall {
+    @media (max-width: #{$breakpoint-xsmall - 1}) {
+      @content;
+    }
+  }
+  @if $point == small {
+    @media (max-width: #{$breakpoint-small - 1}) {
+      @content;
+    }
+  }
+  @if $point == medium {
+    @media (max-width: #{$breakpoint-medium - 1}) {
+      @content;
+    }
+  }
+  @if $point == large {
+    @media (max-width: #{$breakpoint-large - 1}) {
+      @content;
+    }
+  }
+  @if $point == xlarge {
+    @media (max-width: #{$breakpoint-xlarge - 1}) {
+      @content;
+    }
+  }
+}

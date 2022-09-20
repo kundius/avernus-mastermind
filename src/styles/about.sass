@@ -1,0 +1,74 @@
+@import 'responsive'
+
+.section-about
+  background: #060a16 url('../images/section-about-bg-large.jpg') no-repeat 50% 0
+  padding-top: 282px
+  padding-bottom: 67px
+
+.section-about__container
+  display: flex
+  flex-direction: column
+  align-items: flex-end
+
+.section-about__suptitle
+  color: #e94702
+  font-size: 30px
+  text-transform: uppercase
+  line-height: 1
+
+.section-about__title
+  color: #fff
+  font-size: 62.59px
+  font-weight: bold
+  text-transform: uppercase
+  line-height: 68px
+  text-align: right
+  margin-top: 79px
+
+.section-about__title span
+  color: #e94702
+
+.section-about__list
+  padding: 0
+  margin: 0
+  list-style: none
+  margin-top: 47px
+
+.section-about__list li
+  font-size: 22px
+  color: #fff
+  margin: 8px 0
+  position: relative
+  padding-left: 56px
+
+.section-about__list li::before
+  content: ''
+  width: 36px
+  height: 34px
+  display: block
+  background: url('../images/section-about-list-item.png') no-repeat 50% 50%
+  background-size: cover
+  position: absolute
+  left: 0
+  top: -6px
+
+.section-about__button
+  display: flex
+  position: relative
+  width: 1004px
+  max-width: 100%
+  justify-content: center
+  margin-top: 64px
+
+.section-about__button::before
+  content: ''
+  width: 71px
+  height: 53px
+  display: block
+  background: url('../images/section-about-button-arrow.png') no-repeat 50% 50%
+  background-size: cover
+  margin-right: 40px
+  margin-top: -9px
+
+.section-about__button .ui-button-primary
+  width: 304px

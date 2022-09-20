@@ -1,0 +1,147 @@
+.section-process
+  padding-top: 88px
+  padding-bottom: 100px
+  background: #eff2f7 url('../images/section-process-bg-large.jpg') no-repeat 50% 0
+
+.section-process__container
+
+.section-process__title
+  font-size: 36px
+  line-height: 1
+  text-align: center
+  color: #160b05
+  text-transform: uppercase
+
+.section-process__tablet
+  display: flex
+  justify-content: center
+  margin-top: 59px
+
+.section-process__tablet img
+  display: block
+  max-width: 100%
+  height: auto
+
+.process-list
+  margin-top: 59px
+
+.process-item
+  display: flex
+  align-items: center
+  position: relative
+  border-radius: 20px
+  background-color: rgb(195, 216, 240)
+  box-shadow: 0px 15px 7.74px 1.26px rgba(0, 0, 0, 0.13)
+  margin-right: 45px
+  margin-left: 98px
+  padding-top: 26px
+  padding: 40px 26px
+
+.process-item + .process-item
+  margin-top: 26px
+
+.process-item::before
+  content: ''
+  position: absolute
+  z-index: 1
+  width: 3px
+  background: #c3d8f0
+  left: -55px
+  top: -13px
+  bottom: calc(50% + 50px)
+
+.process-item:first-child::before
+  display: none
+
+.process-item::after
+  content: ''
+  position: absolute
+  z-index: 1
+  width: 3px
+  background: #c3d8f0
+  left: -55px
+  top: calc(50% + 50px)
+  bottom: -13px
+
+.process-item:last-child::after
+  display: none
+
+.process-item__dot
+  position: absolute
+  z-index: 2
+  left: -70px
+  top: 50%
+  transform: translateY(-50%)
+  width: 30px
+  height: 30px
+  border-radius: 50%
+  background: rgba(233,71,2,1)
+  background: radial-gradient(circle, rgba(255,255,255,0) 0, rgba(255,255,255,0) 2px, rgba(233,71,2,1) 2px, rgba(233,71,2,1) 6px, rgba(255,255,255,0) 6px, rgba(255,255,255,0) 13px, rgba(233,71,2,1) 13px)
+
+.process-item__number
+  background: #950313
+  width: 78px
+  flex-shrink: 0
+  align-self: flex-start
+  text-align: center
+  line-height: 100px
+  font-size: 60px
+  color: #fff
+  border-radius: 0 16px 16px 0
+  margin-left: -40px
+  position: relative
+  margin-right: 50px
+  font-weight: 500
+  text-transform: uppercase
+  margin-top: -14px
+  margin-bottom: -14px
+
+.process-item__number::before
+  content: ''
+  display: block
+  position: absolute
+  width: 0
+  height: 0
+  border-style: solid
+  border-width: 0 0 7px 14px
+  border-color: transparent transparent #3c1504 transparent
+  bottom: 100%
+  left: 0
+
+.process-item__number::after
+  content: ''
+  display: block
+  position: absolute
+  width: 0
+  height: 0
+  border-style: solid
+  border-width: 0 14px 7px 0
+  border-color: transparent #3c1504 transparent transparent
+  top: 100%
+  left: 0
+
+.process-item__body
+  flex-grow: 1
+
+.process-item__title
+  font-size: 24px
+  line-height: 1.5
+  color: #070707
+  text-transform: uppercase
+  font-weight: 500
+
+.process-item__desc
+  font-size: 18px
+  line-height: 30px
+  color: #070707
+  margin-top: 16px
+
+.process-item__desc span
+  color: #950313
+  font-weight: 500
+
+.process-item__desc p
+  margin: 0
+
+.process-item__desc * + p
+  margin-top: 30px
