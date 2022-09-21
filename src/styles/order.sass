@@ -1,20 +1,109 @@
 .section-order
+  padding-top: 84px
+  padding-bottom: 346px
+  background: #010203 url('../images/section-order-bg-large.jpg') no-repeat 50% 0
   
 .section-order__title
-  
+  position: relative
+  z-index: 1
+  font-size: 36px
+  color: #e94702
+  line-height: 1
+  text-transform: uppercase
+  font-weight: 500
+  padding: 16px 0 10px
+
+.section-order__title::before
+  content: ''
+  position: absolute
+  z-index: -1
+  left: -100vh
+  right: -100vh
+  top: 0
+  bottom: 0
+  background-color: rgba(0, 0, 0, 0.5)
+
+.section-order__desc-wrap
+  display: flex
+  justify-content: flex-start
+  align-items: center
+  margin-top: 9px
+
 .section-order__desc
-  
+  font-size: 30px
+  line-height: 36px
+  color: #e0e0e0
+  border-top: 3px solid #fff
+  padding-top: 13px
+  position: relative
+  padding-left: 85px
+
+.section-order__desc::before
+  content: ''
+  position: absolute
+  left: -1px
+  top: 18px
+  width: 64px
+  height: 64px
+  background: url('../images/order-icon.png') no-repeat 50% 50%
+  background-size: cover
+
 .section-order__form
-  
+  display: flex
+  justify-content: flex-end
+  margin-top: 19px
+  padding: 0 8px
+
 .order-form
+  border-width: 2px
+  border-color: rgb(255, 255, 255)
+  border-style: solid
+  background-color: rgba(0, 0, 0, 0.761)
+  box-shadow: 5.945px 5.353px 7.28px 0.72px rgba(0, 2, 1, 0.64)
+  width: 393px
+  padding: 14px 3px 7px
+  position: relative
+
+.order-form::after
+  content: ''
+  width: 70px
+  height: 78px
+  position: absolute
+  left: 50%
+  transform: translateX(-50%)
+  top: 100%
+  margin-top: 40px
+  background: url('../images/order-arrow.png') no-repeat 50% 50%
+  background-size: cover
   
-.order-form__row
-  
+.order-form__row + .order-form__row
+  margin-top: 11px
+
 .order-form__label
-  
+  margin-left: 16px
+  margin-right: 16px
+  font-size: 19px
+  line-height: 1
+  color: #fff
+  margin-bottom: 11px
+
 .order-form__input
-  
+  display: block
+  width: 100%
+  min-height: 67px
+  background: #fff
+  padding: 0 16px
+
 .order-form__note
-  
+  font-size: 14.57px
+  color: #fff
+  line-height: 24px
+  margin-left: 16px
+  margin-right: 16px
+  margin-top: 10px
+
 .order-form__submit
-  
+  margin-top: 13px
+
+.order-form__submit .ui-button-primary
+  width: 100%

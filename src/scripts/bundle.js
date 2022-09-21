@@ -75,7 +75,7 @@ if (modalToggles.length) {
 }
 
 const header = document.querySelector('.header')
-const scrollup = document.querySelector('.scrollup')
+const scrollup = document.querySelector('.ui-scrollup')
 const scrollHandler = throttle(10, () => {
   if (window.pageYOffset > 20) {
     header.classList.add('header_fixed')
@@ -84,9 +84,9 @@ const scrollHandler = throttle(10, () => {
   }
 
   if (window.pageYOffset > 400) {
-    scrollup.classList.add('scrollup_fixed')
+    scrollup.classList.add('ui-scrollup_fixed')
   } else {
-    scrollup.classList.remove('scrollup_fixed')
+    scrollup.classList.remove('ui-scrollup_fixed')
   }
 })
 
