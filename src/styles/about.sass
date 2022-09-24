@@ -4,17 +4,33 @@
   background: #060a16 url('../images/section-about-bg-large.jpg') no-repeat 50% 0
   padding-top: 282px
   padding-bottom: 67px
+  +below(desktop)
+    padding-top: 196px
+    padding-bottom: 51px
+    background-image: url('../images/section-about-bg-tablet.jpg')
+    background-size: 100% auto
+  +below(tablet)
+    background-image: url('../images/section-about-bg-mobile.jpg')
+    background-size: auto auto
+    padding-top: 90px
+    padding-bottom: 24px
 
 .section-about__container
   display: flex
   flex-direction: column
   align-items: flex-end
+  +below(tablet)
+    align-items: center
 
 .section-about__suptitle
   color: #e94702
   font-size: 30px
   text-transform: uppercase
   line-height: 1
+  +below(desktop)
+    font-size: 24px
+  +below(tablet)
+    font-size: 24px
 
 .section-about__title
   color: #fff
@@ -24,6 +40,17 @@
   line-height: 68px
   text-align: right
   margin-top: 79px
+  +below(desktop)
+    margin-top: 76px
+    font-size: 48px
+    font-weight: 500
+    width: min-content
+    line-height: 56px
+  +below(tablet)
+    font-size: 47px
+    line-height: 48px
+    margin-top: 11px
+    text-align: center
 
 .section-about__title span
   color: #e94702
@@ -33,6 +60,12 @@
   margin: 0
   list-style: none
   margin-top: 47px
+  +below(desktop)
+    margin-top: 59px
+    margin-right: 34px
+  +below(tablet)
+    margin-top: 337px
+    margin-right: 0
 
 .section-about__list li
   font-size: 22px
@@ -40,6 +73,15 @@
   margin: 8px 0
   position: relative
   padding-left: 56px
+  +below(desktop)
+    font-size: 18px
+    margin: 14px 0
+    padding-left: 52px
+  +below(tablet)
+    font-size: 16px
+    line-height: 20px
+    padding-left: 52px
+    margin: 20px 0
 
 .section-about__list li::before
   content: ''
@@ -51,6 +93,12 @@
   position: absolute
   left: 0
   top: -6px
+  +below(tablet)
+    width: 28px
+    height: 27px
+  +below(tablet)
+    left: 14px
+    top: 2px
 
 .section-about__button
   display: flex
@@ -59,6 +107,10 @@
   max-width: 100%
   justify-content: center
   margin-top: 64px
+  +below(desktop)
+    margin-top: 31px
+  +below(tablet)
+    margin-top: 3px
 
 .section-about__button::before
   content: ''
@@ -69,6 +121,12 @@
   background-size: cover
   margin-right: 40px
   margin-top: -9px
+  +below(desktop)
+    margin-right: 32px
+    margin-top: 0px
+    margin-left: -95px
+    width: 64px
+    height: 48px
 
 .section-about__button .ui-button-primary
   width: 304px

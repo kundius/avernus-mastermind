@@ -1,56 +1,36 @@
 @import 'variables';
 
 @mixin above($point) {
-  @if $point == xsmall {
-    @media (min-width: #{$breakpoint-xsmall}) {
+  @if $point == mobile {
+    @media (min-width: #{$breakpoint-mobile}) {
       @content;
     }
   }
-  @if $point == small {
-    @media (min-width: #{$breakpoint-small}) {
+  @if $point == tablet {
+    @media (min-width: #{$breakpoint-tablet}) {
       @content;
     }
   }
-  @if $point == medium {
-    @media (min-width: #{$breakpoint-medium}) {
-      @content;
-    }
-  }
-  @if $point == large {
-    @media (min-width: #{$breakpoint-large}) {
-      @content;
-    }
-  }
-  @if $point == xlarge {
-    @media (min-width: #{$breakpoint-xlarge}) {
+  @if $point == desktop {
+    @media (min-width: #{$breakpoint-desktop}) {
       @content;
     }
   }
 }
 
 @mixin below($point) {
-  @if $point == xsmall {
-    @media (max-width: #{$breakpoint-xsmall - 1}) {
+  @if $point == mobile {
+    @media (max-width: #{$breakpoint-mobile - 1}) {
       @content;
     }
   }
-  @if $point == small {
-    @media (max-width: #{$breakpoint-small - 1}) {
+  @if $point == tablet {
+    @media (max-width: #{$breakpoint-tablet - 1}) {
       @content;
     }
   }
-  @if $point == medium {
-    @media (max-width: #{$breakpoint-medium - 1}) {
-      @content;
-    }
-  }
-  @if $point == large {
-    @media (max-width: #{$breakpoint-large - 1}) {
-      @content;
-    }
-  }
-  @if $point == xlarge {
-    @media (max-width: #{$breakpoint-xlarge - 1}) {
+  @if $point == desktop {
+    @media (max-width: #{$breakpoint-desktop - 1}) {
       @content;
     }
   }

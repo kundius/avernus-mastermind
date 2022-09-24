@@ -4,7 +4,7 @@
   background: #ffffff
   padding-top: 80px
   padding-bottom: 80px
-  +below(small)
+  +below(tablet)
     padding-top: 40px
     padding-bottom: 40px
 
@@ -19,7 +19,7 @@
   align-items: center
   justify-content: center
   letter-spacing: 0.02em
-  +below(small)
+  +below(tablet)
     font-size: 24px
     line-height: 1.25
     font-weight: 400
@@ -27,53 +27,53 @@
   span
     position: relative
     display: block
-    &::before
-      content: ''
-      background: url('../images/leap-left.png') no-repeat 50% 50%
-      background-size: cover
-      width: 76px
-      height: 32px
-      position: absolute
-      top: 50%
-      left: -94px
-      margin-top: -16px
-      +below(small)
-        width: 38px
-        height: 16px
-        left: -44px
-        margin-top: -8px
-    &::after
-      content: ''
-      background: url('../images/leap-right.png') no-repeat 50% 50%
-      background-size: cover
-      width: 76px
-      height: 32px
-      position: absolute
-      top: 50%
-      right: -94px
-      margin-top: -16px
-      +below(small)
-        width: 38px
-        height: 16px
-        right: -44px
-        margin-top: -8px
+    // &::before
+    //   content: ''
+    //   background: url('../images/leap-left.png') no-repeat 50% 50%
+    //   background-size: cover
+    //   width: 76px
+    //   height: 32px
+    //   position: absolute
+    //   top: 50%
+    //   left: -94px
+    //   margin-top: -16px
+    //   +below(tablet)
+    //     width: 38px
+    //     height: 16px
+    //     left: -44px
+    //     margin-top: -8px
+    // &::after
+    //   content: ''
+    //   background: url('../images/leap-right.png') no-repeat 50% 50%
+    //   background-size: cover
+    //   width: 76px
+    //   height: 32px
+    //   position: absolute
+    //   top: 50%
+    //   right: -94px
+    //   margin-top: -16px
+    //   +below(tablet)
+    //     width: 38px
+    //     height: 16px
+    //     right: -44px
+    //     margin-top: -8px
 
 .section-faq__body
   max-width: 760px
   margin: 60px auto 0
-  +below(small)
+  +below(tablet)
     margin-top: 30px
 
 .section-faq__button
   display: flex
   justify-content: center
   margin-top: 60px
-  +below(small)
+  +below(tablet)
     margin-top: 30px
   .ui-button-primary
     width: 304px
     max-width: 100%
-    +below(medium)
+    +below(desktop)
       width: 288px
 
 .accordion-row
@@ -89,7 +89,7 @@
   font-weight: 500
   position: relative
   cursor: pointer
-  +below(small)
+  +below(tablet)
     font-size: 18px
   &:hover::before
     background:#e8e8e8
@@ -126,5 +126,5 @@
   &::after
     content: ''
     display: block
-  +below(small)
+  +below(tablet)
     font-size: 16px

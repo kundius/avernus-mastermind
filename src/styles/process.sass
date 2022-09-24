@@ -2,6 +2,13 @@
   padding-top: 88px
   padding-bottom: 100px
   background: #eff2f7 url('../images/section-process-bg-large.jpg') no-repeat 50% 0
+  +below(desktop)
+    padding-top: 39px
+    padding-bottom: 58px
+    background: #f3f6f8
+  +below(tablet)
+    padding-top: 13px
+    padding-bottom: 36px
 
 .section-process__container
 
@@ -11,11 +18,25 @@
   text-align: center
   color: #160b05
   text-transform: uppercase
+  font-weight: 500
+  +below(desktop)
+    font-size: 31px
+  +below(tablet)
+    font-size: 24px
+    line-height: 30px
 
 .section-process__tablet
   display: flex
   justify-content: center
   margin-top: 59px
+  +below(desktop)
+    margin-top: 29px
+    margin-left: -18px
+    margin-right: -18px
+  +below(tablet)
+    margin-top: 10px
+    margin-left: 0px
+    margin-right: 0px
 
 .section-process__tablet img
   display: block
@@ -24,21 +45,33 @@
 
 .process-list
   margin-top: 59px
+  +below(desktop)
+    margin-top: 32px
+  +below(tablet)
+    margin-top: 20px
 
 .process-item
   display: flex
   align-items: center
   position: relative
   border-radius: 20px
-  background-color: rgb(195, 216, 240)
-  box-shadow: 0px 15px 7.74px 1.26px rgba(0, 0, 0, 0.13)
+  background-color: #bdd9f3
+  box-shadow: 7px 15px 7.74px 1.26px rgba(0, 0, 0, 0.13)
   margin-right: 45px
   margin-left: 98px
   padding-top: 26px
   padding: 40px 26px
+  +below(desktop)
+    margin-right: 0
+    margin-left: 25px
+    padding: 30px 26px
+  +below(tablet)
+    padding: 20px 6px
 
 .process-item + .process-item
   margin-top: 26px
+  +below(tablet)
+    margin-top: 12px
 
 .process-item::before
   content: ''
@@ -49,6 +82,13 @@
   left: -55px
   top: -13px
   bottom: calc(50% + 50px)
+  +below(desktop)
+    left: -35px
+  +below(tablet)
+    left: -22px
+    top: -13px
+    bottom: calc(100% - 16px)
+    width: 2px
 
 .process-item:first-child::before
   display: none
@@ -62,6 +102,13 @@
   left: -55px
   top: calc(50% + 50px)
   bottom: -13px
+  +below(desktop)
+    left: -35px
+  +below(tablet)
+    left: -22px
+    top: 74px
+    bottom: -13px
+    width: 2px
 
 .process-item:last-child::after
   display: none
@@ -75,8 +122,17 @@
   width: 30px
   height: 30px
   border-radius: 50%
-  background: rgba(233,71,2,1)
-  background: radial-gradient(circle, rgba(255,255,255,0) 0, rgba(255,255,255,0) 2px, rgba(233,71,2,1) 2px, rgba(233,71,2,1) 6px, rgba(255,255,255,0) 6px, rgba(255,255,255,0) 13px, rgba(233,71,2,1) 13px)
+  background: #e94702
+  background: radial-gradient(circle, rgba(255,255,255,0) 0, rgba(255,255,255,0) 2px, #e94702 2px, #e94702 6px, rgba(255,255,255,0) 6px, rgba(255,255,255,0) 13px, #e94702 13px)
+  +below(desktop)
+    left: -50px
+  +below(tablet)
+    top: 35px
+    transform: none
+    left: -30px
+    width: 18px
+    height: 18px
+    background: radial-gradient(circle, #e94702 0px, #e94702 4px, rgba(255,255,255,0) 4px, rgba(255,255,255,0) 7px, #e94702 7px)
 
 .process-item__number
   background: #950313
@@ -95,6 +151,18 @@
   text-transform: uppercase
   margin-top: -14px
   margin-bottom: -14px
+  +below(desktop)
+    margin-right: 10px
+    margin-top: -5px
+    margin-bottom: -5px
+  +below(tablet)
+    background: #b0000b
+    margin-right: 6px
+    width: 47px
+    margin-left: -14px
+    font-size: 36px
+    line-height: 60px
+    border-radius: 0 10px 10px 0
 
 .process-item__number::before
   content: ''
@@ -104,9 +172,11 @@
   height: 0
   border-style: solid
   border-width: 0 0 7px 14px
-  border-color: transparent transparent #3c1504 transparent
+  border-color: transparent transparent #531501 transparent
   bottom: 100%
   left: 0
+  +below(tablet)
+    border-width: 0 0 4px 10px
 
 .process-item__number::after
   content: ''
@@ -116,9 +186,11 @@
   height: 0
   border-style: solid
   border-width: 0 14px 7px 0
-  border-color: transparent #3c1504 transparent transparent
+  border-color: transparent #531501 transparent transparent
   top: 100%
   left: 0
+  +below(tablet)
+    border-width: 0 10px 4px 0
 
 .process-item__body
   flex-grow: 1
@@ -129,12 +201,24 @@
   color: #070707
   text-transform: uppercase
   font-weight: 500
+  +below(desktop)
+    font-size: 22px
+    line-height: 30px
+  +below(tablet)
+    font-size: 14px
+    line-height: 18px
+    letter-spacing: 0.025em
 
 .process-item__desc
   font-size: 18px
   line-height: 30px
   color: #070707
   margin-top: 16px
+  +below(desktop)
+    line-height: 24px
+    margin-top: 5px
+  +below(tablet)
+    display: none
 
 .process-item__desc span
   color: #950313
@@ -145,3 +229,5 @@
 
 .process-item__desc * + p
   margin-top: 30px
+  +below(desktop)
+    margin-top: 24px

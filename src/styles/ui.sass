@@ -1,3 +1,4 @@
+@import 'variables'
 @import 'responsive'
 
 *, *::before, *::after
@@ -58,8 +59,12 @@ img
   width: 1240px
   max-width: 100%
   box-sizing: border-box
-  @media (max-width: 359px)
-    padding: 0 10px
+  +below(desktop)
+    padding: 0 38px
+  +below(tablet)
+    padding: 0 24px
+  // @media (max-width: 359px)
+  //   padding: 0 10px
 
 .ui-button-primary
   background: linear-gradient(174deg, #e94702 35%, #a73606 80%)
@@ -72,13 +77,15 @@ img
   white-space: nowrap
   text-decoration: none
   color: #fff
+  border: none
   display: inline-block
   text-transform: uppercase
   transition: color .3s ease
   position: relative
   z-index: 1
-  +below(medium)
-    line-height: 57px
+  +below(tablet)
+    line-height: 48px
+    font-size: 16px
   &::before
     transition: opacity .3s ease
     content: ''
@@ -177,3 +184,27 @@ img
     &::before,
     &::after
       background: #ffffff
+
+.ui-visible-mobile
+  @media (min-width: $breakpoint-tablet)
+    display: none
+
+.ui-visible-tablet
+  @media (max-width: $breakpoint-tablet - 1) or (min-width: $breakpoint-desktop)
+    display: none
+
+.ui-visible-desktop
+  @media (max-width: $breakpoint-desktop - 1)
+    display: none
+
+.ui-hidden-mobile
+  @media (max-width: $breakpoint-tablet - 1)
+    display: none
+
+.ui-hidden-tablet
+  @media (min-width: $breakpoint-tablet) or (max-width: $breakpoint-desktop - 1)
+    display: none
+
+.ui-hidden-desktop
+  @media (min-width: $breakpoint-desktop)
+    display: none

@@ -2,6 +2,17 @@
   padding-top: 84px
   padding-bottom: 346px
   background: #010203 url('../images/section-order-bg-large.jpg') no-repeat 50% 0
+  +below(desktop)
+    padding-top: 44px
+    padding-bottom: 232px
+    background-image: url('../images/section-order-bg-tablet.jpg')
+    background-size: 100% auto
+  +below(tablet)
+    background-image: url('../images/section-order-bg-mobile.jpg')
+    background-size: auto auto
+    background-position: 50% 100%
+    padding-top: 28px
+    padding-bottom: 242px
   
 .section-order__title
   position: relative
@@ -12,6 +23,14 @@
   text-transform: uppercase
   font-weight: 500
   padding: 16px 0 10px
+  +below(desktop)
+    font-size: 31px
+    padding: 19px 0 11px
+  +below(tablet)
+    text-align: center
+    font-size: 25px
+    padding: 11px 0
+    line-height: 28px
 
 .section-order__title::before
   content: ''
@@ -28,6 +47,11 @@
   justify-content: flex-start
   align-items: center
   margin-top: 9px
+  +below(desktop)
+    margin-top: 7px
+  +below(tablet)
+    margin-top: 4px
+    justify-content: center
 
 .section-order__desc
   font-size: 30px
@@ -37,22 +61,46 @@
   padding-top: 13px
   position: relative
   padding-left: 85px
+  +below(desktop)
+    font-size: 24px
+    line-height: 30px
+    padding-top: 17px
+    padding-left: 80px
+  +below(tablet)
+    text-align: center
+    padding-left: 0
+    padding-top: 10px
+    font-size: 18px
+    line-height: 24px
 
 .section-order__desc::before
   content: ''
   position: absolute
   left: -1px
+  display: block
   top: 18px
   width: 64px
   height: 64px
   background: url('../images/order-icon.png') no-repeat 50% 50%
   background-size: cover
+  +below(tablet)
+    position: relative
+    margin-left: auto
+    margin-right: auto
+    left: initial
+    top: initial
+    margin-bottom: 7px
 
 .section-order__form
   display: flex
   justify-content: flex-end
   margin-top: 19px
   padding: 0 8px
+  +below(desktop)
+    margin-top: 33px
+  +below(tablet)
+    margin-top: 10px
+    justify-content: center
 
 .order-form
   border-width: 2px
@@ -63,6 +111,8 @@
   width: 393px
   padding: 14px 3px 7px
   position: relative
+  +below(tablet)
+    padding-top: 11px
 
 .order-form::after
   content: ''
@@ -72,9 +122,18 @@
   left: 50%
   transform: translateX(-50%)
   top: 100%
-  margin-top: 40px
+  margin-top: 36px
   background: url('../images/order-arrow.png') no-repeat 50% 50%
   background-size: cover
+  +below(desktop)
+    left: auto
+    transform: initial
+    right: 40px
+  +below(tablet)
+  right: 33px
+  margin-top: 20px
+  width: 44px
+  height: 54px
   
 .order-form__row + .order-form__row
   margin-top: 11px
@@ -86,6 +145,9 @@
   line-height: 1
   color: #fff
   margin-bottom: 11px
+  +below(tablet)
+    font-size: 15px
+    margin-bottom: 10px
 
 .order-form__input
   display: block
@@ -93,6 +155,9 @@
   min-height: 67px
   background: #fff
   padding: 0 16px
+  border: none
+  +below(tablet)
+    min-height: 50px
 
 .order-form__note
   font-size: 14.57px
@@ -101,9 +166,15 @@
   margin-left: 16px
   margin-right: 16px
   margin-top: 10px
+  +below(tablet)
+    font-size: 11px
+    margin-top: 9px
+    line-height: 20px
 
 .order-form__submit
   margin-top: 13px
+  +below(tablet)
+    margin-top: 10px
 
 .order-form__submit .ui-button-primary
   width: 100%

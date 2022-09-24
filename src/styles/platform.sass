@@ -3,6 +3,16 @@
   padding-top: 70px
   padding-bottom: 82px
   position: relative
+  +below(desktop)
+    padding-top: 41px
+    padding-bottom: 78px
+    background-image: url('../images/section-platform-bg-tablet.jpg')
+    background-size: 100% auto
+  +below(tablet)
+    padding-top: 21px
+    padding-bottom: 30px
+    background-image: url('../images/section-platform-bg-mobile.jpg')
+    background-size: auto auto
 
 .section-platform::before
   content: ''
@@ -22,6 +32,14 @@
   line-height: 48px
   color: #fff
   text-transform: uppercase
+  font-weight: 500
+  +below(desktop)
+    font-size: 31px
+    line-height: 36px
+  +below(tablet)
+    font-size: 24px
+    line-height: 30px
+    text-align: center
 
 .section-platform__title span
   color: #e94702
@@ -31,6 +49,15 @@
   line-height: 1
   color: #fff
   margin-top: 53px
+  +below(desktop)
+    font-size: 24px
+    line-height: 30px
+    margin-top: 27px
+  +below(tablet)
+    font-size: 18px
+    line-height: 24px
+    margin-top: 11px
+    text-align: center
 
 .section-platform__points
   padding: 0
@@ -38,6 +65,14 @@
   list-style: none
   margin-top: 70px
   width: 874px
+  max-width: 100%
+  +below(desktop)
+    margin-top: 68px
+    width: 712px
+  +below(tablet)
+    margin-top: 21px
+    display: flex
+    flex-direction: column
 
 .section-platform__points::after
   content: ''
@@ -52,20 +87,43 @@
   line-height: 30px
   padding: 10px 12px 12px 18px
   position: relative
+  +below(desktop)
+    font-size: 18px
+    line-height: 27px
+    padding: 9px 9px 9px 13px
+  +below(tablet)
+    text-align: center
+    font-size: 15px
+    line-height: 18px
+    padding: 10px 4px
+    max-width: 360px
+    margin: 0 auto
 
 .section-platform__points li:nth-child(2n-1)
   float: left
   width: 54%
   clear: left
+  +below(desktop)
+    width: 55%
+  +below(tablet)
+    width: 100%
+    float: none
 
 .section-platform__points li:nth-child(2n)
   float: right
   width: calc(46% + 37px)
   clear: right
+  +below(desktop)
+    width: calc(45% + 31px)
+  +below(tablet)
+    width: 100%
+    float: none
 
 .section-platform__points li:nth-child(1)
   border-color: #c3d8f0
   color: #c3d8f0
+  +below(tablet)
+    order: 1
 
 .section-platform__points li:nth-child(1)::after
   content: ''
@@ -77,6 +135,13 @@
   background: #950313
   bottom: 48px
   right: -16px
+  +below(desktop)
+    bottom: 59px
+    right: -12px
+    width: 22px
+    height: 22px
+  +below(tablet)
+    display: none
 
 .section-platform__points li:nth-child(2)
   border-color: #fc8d6b
@@ -84,6 +149,15 @@
   margin-top: -37px
   margin-left: -37px
   padding-left: 50px
+  +below(desktop)
+    margin-left: -31px
+    margin-top: -33px
+    padding-left: 45px
+  +below(tablet)
+    margin-left: auto
+    margin-top: 8px
+    padding-left: 4px
+    order: 4
 
 .section-platform__points li:nth-child(2)::after
   content: ''
@@ -95,12 +169,26 @@
   background: #950313
   bottom: -16px
   right: 18px
+  +below(desktop)
+    width: 22px
+    height: 22px
+    bottom: -12px
+    right: 40px
+  +below(tablet)
+    display: none
 
 .section-platform__points li:nth-child(3)
   border-color: #fc8d6b
   color: #fc8d6b
   margin-top: 29px
   padding: 15px 12px 18px 18px
+  +below(desktop)
+    margin-top: 26px
+    padding: 14px 8px 14px 14px
+  +below(tablet)
+    padding: 10px 4px
+    order: 2
+    margin-top: 8px
 
 .section-platform__points li:nth-child(3)::after
   content: ''
@@ -112,6 +200,13 @@
   background: #950313
   bottom: 71px
   right: -16px
+  +below(desktop)
+    width: 22px
+    height: 22px
+    bottom: 25px
+    right: -12px
+  +below(tablet)
+    display: none
 
 .section-platform__points li:nth-child(4)
   border-color: #c3d8f0
@@ -119,6 +214,14 @@
   margin-top: -36px
   margin-left: -37px
   padding-left: 50px
+  +below(desktop)
+    margin-left: -31px
+    margin-top: -42px
+  +below(tablet)
+    margin-left: auto
+    margin-top: 8px
+    padding-left: 4px
+    order: 3
 
 .section-platform__points li:nth-child(4)::after
   content: ''
@@ -130,3 +233,10 @@
   background: #950313
   bottom: -16px
   right: 54px
+  +below(desktop)
+    width: 22px
+    height: 22px
+    bottom: -12px
+    right: 29px
+  +below(tablet)
+    display: none
