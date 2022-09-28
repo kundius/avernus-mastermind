@@ -1,0 +1,20 @@
+
+label.error {
+  display: block;
+  padding: 15px;
+  border: 3px solid #ef6840;
+  font-size: 16px;
+  margin-top: 15px;
+  position: relative;
+  color: #000;
+  background: #ffebe6
+}
+
+label.error_success {
+  border-color: #6fc54c;
+  background: #e7f3e3
+}
+
+input[name="action"] + label.error {
+  margin-bottom: 15px;
+}

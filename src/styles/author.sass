@@ -1,15 +1,17 @@
 @import 'responsive'
 
 .section-author
-  background: #080808 url('../images/section-author-bg.jpg') no-repeat 50% 0
+  background: #080808 url('../images/section-author-bg-large.jpg') no-repeat 50% 0
   padding: 71px 0 41px
   +below(desktop)
     padding: 52px 0 10px
-    background: #030303 url('../images/section-author-bg-medium.jpg') no-repeat 50% 0
+    background: #030303 url('../images/section-author-bg-tablet.jpg') no-repeat 50% 0
+    background-size: 100% auto
   +below(tablet)
     padding-top: 29px
     padding-bottom: 39px
-    background: #080808 url('../images/section-author-bg-small.jpg') no-repeat 50% 0
+    background: #080808 url('../images/section-author-bg-mobile.jpg') no-repeat 50% 0
+    background-size: auto
 
 .section-author__title
   color: #ffffff

@@ -106,11 +106,9 @@ scrolls.forEach(scroll => scroll.addEventListener('click', e => {
     }
   }
 
-  window.scroll({
-    top,
-    left,
-    behavior: 'smooth'
-  })
+  $([document.documentElement, document.body]).animate({
+    scrollTop: top
+  }, 2000);
 }))
 
 const menuToggle = document.querySelector('.header__toggle')
@@ -140,57 +138,130 @@ document.addEventListener('keyup', function (e) {
   }
 }, false)
 
-const forms = document.querySelectorAll('[data-from]') || []
-forms.forEach(form => {
-  const messagesContainer = form.querySelector('[data-from-messages]') || form
+// const forms = document.querySelectorAll('[data-from]') || []
+// forms.forEach(form => {
+//   const messagesContainer = form.querySelector('[data-from-messages]') || form
 
-  let messages = new Set()
+//   let messages = new Set()
 
-  const showMessage = (text, mode, delay) => {
-    const el = document.createElement('div')
-    el.classList.add('ui-form-message')
-    el.classList.add('ui-form-message_' + mode)
-    el.innerHTML = text
-    const close = document.createElement('button')
-    close.classList.add('ui-form-message__close')
-    close.addEventListener('click', e => {
-      e.stopPropagation()
-      messages.delete(el)
-      el.parentNode.removeChild(el)
-    })
-    el.appendChild(close)
-    messagesContainer.appendChild(el)
+//   const showMessage = (text, mode, delay) => {
+//     const el = document.createElement('div')
+//     el.classList.add('ui-form-message')
+//     el.classList.add('ui-form-message_' + mode)
+//     el.innerHTML = text
+//     const close = document.createElement('button')
+//     close.classList.add('ui-form-message__close')
+//     close.addEventListener('click', e => {
+//       e.stopPropagation()
+//       messages.delete(el)
+//       el.parentNode.removeChild(el)
+//     })
+//     el.appendChild(close)
+//     messagesContainer.appendChild(el)
 
-    messages.add(el)
+//     messages.add(el)
 
-    if (delay) {
-      setTimeout(() => {
-        messages.delete(el)
-        el.parentNode.removeChild(el)
-      }, delay)
-    }
-  }
+//     if (delay) {
+//       setTimeout(() => {
+//         messages.delete(el)
+//         el.parentNode.removeChild(el)
+//       }, delay)
+//     }
+//   }
 
-  form.addEventListener('submit', function(e) {
-    e.preventDefault()
+//   form.addEventListener('submit', function(e) {
+//     e.preventDefault()
 
-    for (let message of messages) {
-      messages.delete(message)
-      message.parentNode.removeChild(message)
-    }
+//     for (let message of messages) {
+//       messages.delete(message)
+//       message.parentNode.removeChild(message)
+//     }
 
-    fetch(form.action, {
-      method: 'POST',
-      body: new FormData(form)
-    })
-    .then(response => response.json())
-    .then(response => {
-      if (response.success) {
-        form.reset()
-        showMessage('Сообщение успешно отправлено', 'success', 8000)
-      } else {
-        showMessage('В форме присутствуют ошибки', 'error')
-      }
-    })
+//     fetch(form.action, {
+//       method: 'POST',
+//       body: new FormData(form)
+//     })
+//     .then(response => response.json())
+//     .then(response => {
+//       if (response.success) {
+//         form.reset()
+//         showMessage('Сообщение успешно отправлено', 'success', 8000)
+//       } else {
+//         showMessage('В форме присутствуют ошибки', 'error')
+//       }
+//     })
+//   })
+// })
+
+
+jQuery.validator.addMethod("laxEmail", function(value, element) {
+  return this.optional( element ) || /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test( value );
+}, 'Некорректный e-mail.');
+
+function submitForm(form, validator) {
+  fetch(form.getAttribute('action'), {
+    method: 'POST',
+    body: new FormData(form)
   })
-})
+  .then(response => response.json())
+  .then(response => {
+    if (response.success) {
+      form.reset();
+      validator.showErrors({
+        "action": response.message
+      });
+      $('#action-error', form).addClass('error_success');
+      setTimeout(() => {
+        validator.resetForm();
+      }, 4000);
+      if (response.redirect) {
+        window.location = response.redirect;
+      }
+    } else {
+      validator.showErrors({
+        "action": response.message
+      });
+    }
+  });
+}
+
+var orderFormValidator = $("#order-form").validate({
+  rules: {
+    name: {
+      required: true
+    },
+    phone: {
+      required: true
+    }
+  },
+  messages: {
+    name: {
+      required: "Введите имя",
+    },
+    phone: {
+      required: "Введите телефон (WhatsApp, Viber)",
+    }
+  },
+  submitHandler: function(form) {
+    submitForm(form, orderFormValidator);
+  }
+});
+
+var faqFormValidator = $("#faq-form").validate({
+  rules: {
+    email: {
+      required: true,
+      email: true,
+      laxEmail: true
+    },
+  },
+  messages: {
+    email: {
+      required: "Введите e-mail",
+      email: "Некорректный e-mail"
+    },
+  },
+  submitHandler: function(form) {
+    submitForm(form, faqFormValidator);
+  }
+});

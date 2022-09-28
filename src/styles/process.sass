@@ -231,3 +231,15 @@
   margin-top: 30px
   +below(desktop)
     margin-top: 24px
+
+.process-item__desc-marked
+  position: relative
+
+.process-item__desc-marked::before
+  content: ''
+  position: absolute
+  left: -28px
+  top: 1px
+  border-style: solid
+  border-width: 12px 0 12px 18px
+  border-color: transparent transparent transparent #dd4545

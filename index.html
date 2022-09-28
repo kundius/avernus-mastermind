@@ -145,12 +145,12 @@
                 это либо диагностика людей, либо отработка навыков общения.
               </div>
               <div class="process-item__desc">
-                <p>Пример <span>ЗАДАНИЯ НА ДИАГНОСТИКУ</span> – ведущий демонстрирует определенный видеоролик, 
+                <p class="process-item__desc-marked">Пример <span>ЗАДАНИЯ НА ДИАГНОСТИКУ</span> – ведущий демонстрирует определенный видеоролик, 
                 и предлагает группе высказать свое мнение о герое этого видео. Подробно рассказать: как этот 
                 человек мыслит, что ему важно в жизни, к чему он стремится, чего боится, какие у него проблемы, 
                 как можно с ним подружиться, на чем его можно завербовать и т.д. Все максимально аргументированно.</p>
 
-                <p>Пример <span>ЗАДАНИЯ НА ОТРАБОТКУ</span> навыков общения - ведущий описывает определенную 
+                <p class="process-item__desc-marked">Пример <span>ЗАДАНИЯ НА ОТРАБОТКУ</span> навыков общения - ведущий описывает определенную 
                 переговорную либо манипулятивную технику. Из группы выбираются двое добровольцев, которые 
                 выполняют эту технику в общем зале. Далее следует разбор, после чего все участники расходятся 
                 по сессионным залам и обрабатывают упражнение в парах. После завершения отработки происходит 
@@ -236,7 +236,7 @@
     <section class="section-author" id="author">
       <div class="ui-container">
         <div class="section-author__title">
-          <span>Автор курса</span>
+          <span>Ведущий мастерской</span>
           Александр Петров
         </div>
         <ul class="section-author__items">
@@ -349,14 +349,14 @@
           на расширение постоянного состава участников, для того чтобы группа<br class="ui-visible-desktop" />
           могла двигаться вперед и осваивать более сложные техники.
         </div>
-        <div class="section-terms__text-4">
+        <!-- <div class="section-terms__text-4">
           Что делать, если вы пока не являетесь клиентом Александра,<br />
           но хотели бы присоединиться к Мастерской?
         </div>
         <div class="section-terms__text-5">
           Вы должны пройти испытание<br class="ui-visible-tablet" /> – выполнить все задания в марафоне<br />
           «Первые шаги в искусстве чтения людей».
-        </div>
+        </div> -->
         <div class="section-terms__button">
           <a href="#order" data-scroll="#order" class="ui-button-primary">
             Оставить заявку
@@ -375,22 +375,24 @@
           </div>
         </div>
         <div class="section-order__form">
-          <form action="/email/mastermind" method="post" class="order-form" data-from>
+          <form action="/email/mastermind" method="post" class="order-form" id="order-form" data-from>
+          <input type="hidden" name="action" value="order-form" />
             <div data-from-messages></div>
             <div class="order-form__row">
               <div class="order-form__label">Фамилия и имя</div>
               <input type='text' name='name' class="order-form__input" required />
             </div>
             <div class="order-form__row">
-              <div class="order-form__label">Телефон</div>
+              <div class="order-form__label">Телефон (WhatsApp, Viber)</div>
               <input type='text' name='phone' class="order-form__input" required />
             </div>
             <div class="order-form__row">
               <div class="order-form__label">Email</div>
-              <input type='email' name='email' class="order-form__input" required />
+              <input type='email' name='email' class="order-form__input" />
             </div>
             <div class="order-form__note">
-              Заполняя данную форму, вы соглашаетесь с политикой обработки персональных данных
+              <input type='hidden' name='approve' value='1' required />
+              Заполняя данную форму, вы даете <a href="https://master.avernus.ru/consent" target="_blank">Согласие</a> на обработку ваших персональных данных
             </div>
             <div class="order-form__submit">
               <button class="ui-button-primary" type="submit">Оставить заявку</button>
@@ -409,119 +411,48 @@
           <div class="accordion" data-accordion>
 
             <div class="accordion-row" data-accordion-row>
-              <div class="accordion-row__header" data-accordion-header>Смогу ли я освоить этот курс? Я в этом ничего не понимаю.</div>
+              <div class="accordion-row__header" data-accordion-header>Что нужно для участия?</div>
               <div class="accordion-row__content" data-accordion-content>
-                <p>Курс "Оперативная психодиагностика" рассчитан на начинающих. Изучение идет поэтапно: от простого к сложному. Автор курса объясняет каждый сделанный шаг. Поэтому проблем при изучении курса у вас не будет.</p>
+				        <p>Камера, микрофон и стабильный Интернет.<br/>Мастерская предполагает активное участие и работу в парах, поэтому отсидеться в стороне и просто послушать не получится.</p>
               </div>
             </div>
 
             <div class="accordion-row" data-accordion-row>
-              <div class="accordion-row__header" data-accordion-header>Каким образом я могу произвести оплату?</div>
+              <div class="accordion-row__header" data-accordion-header>Я бы хотел поприсутствовать в качестве наблюдателя, не участвуя в упражнениях. Это возможно?</div>
               <div class="accordion-row__content" data-accordion-content>
-				        <p style="text-indent: 0;margin: 21px;margin-top: 0px;margin-bottom: 0px; line-height: 24px;  text-align: left;"><b>Доступные способы оплаты:</b><br><br></p>
-                <table style="text-indent: 0;margin: 21px;margin-top: 0px;margin-bottom: 0px; line-height: 24px;  text-align: left; vertical-align: middle; border-collapse: separate; border-spacing: 10px 10px; ">
-                <tbody><tr>
-                  <td>Картой VISA, MasterCard</td>
-                  <td width="20"></td>
-                  <td><img src="//avernus.ru/trade/ask/visa-master-card.png"></td>
-                </tr>
-                <tr>
-                  <td>Платежная система Webmoney</td>
-                  <td width="20"></td>
-                  <td><img src="//avernus.ru/trade/ask/webmoney.png"></td>
-                </tr>
-                <tr>
-                  <td>Платежная система Яндекс.Деньги</td>
-                  <td width="20"></td>
-                  <td><img src="//avernus.ru/trade/ask/yandex-money.png"></td>
-                </tr>
-                <tr>
-                  <td>Платежная система QIWI</td>
-                  <td width="20"></td>
-                  <td><img src="//avernus.ru/trade/ask/qiwi.png"></td>
-                </tr>
-                <tr>
-                  <td>Денежные переводы через системы:</td>
-                  <td width="20"></td>
-                  <td><img src="//avernus.ru/trade/ask/transfer-money.png"></td>
-                </tr>
-                <tr>
-                  <td>Оплата через салоны связи:</td>
-                  <td width="20"></td>
-                  <td><img src="//avernus.ru/trade/ask/mobile-net.png"></td>
-                </tr>
-                <tr>
-                  <td>Платежная система PayPal</td>
-                  <td width="20"></td>
-                  <td><img src="//avernus.ru/trade/ask/paypal.png"></td>
-                </tr>
-                <tr>
-                  <td>Сбербанк Онлайн</td>
-                  <td width="20"></td>
-                  <td><img src="//avernus.ru/trade/ask/sb-online.png"></td>
-                </tr>
-                <tr>
-                  <td>Перевод на карту Сбербанка</td>
-                  <td width="20"></td>
-                  <td><img src="//avernus.ru/trade/ask/sb.png"></td>
-                </tr>
-                </tbody></table>
+                <p>Только на первой встрече. Предупредите заранее ведущего, чтобы он не ставил вас в пары. Но начиная со второй встречи работа в сессионных залах обязательна.</p>
               </div>
             </div>
 
             <div class="accordion-row" data-accordion-row>
-              <div class="accordion-row__header" data-accordion-header>В каком формате курс и как я его получу?</div>
+              <div class="accordion-row__header" data-accordion-header>Я сомневаюсь, что у меня что-то получится</div>
               <div class="accordion-row__content" data-accordion-content>
-                <p>Курс подготовлен в формате электронной книги (PDF и DOC файлы объемом 253 страницы). Ссылка для скачивания курса придет на вашу почту в течение двух минут после оплаты.</p>
-		            <p>Почему именно текст? Именно такой формат позволил вместить в него всю массу полезных фишек по тематике чтения людей. Чтобы создать аналогичный видео-курс, потребовалось бы больше 50 часов видео, а это негативно отразилось бы на цене.</p>
+                <p>Все индивидуальны - у кого-то получается быстрее, у кого-то медленнее. Но искусство коммуникации, как и любое дело, подчиняется практике. Если активно участвовать в упражнениях, не пропускать занятия, быть вовлеченным, выполнять домашние задания, когда они будут, то результат не заставит себя ждать.</p>
               </div>
             </div>
 
             <div class="accordion-row" data-accordion-row>
-              <div class="accordion-row__header" data-accordion-header>Пытаюсь провести оплату, но сайт спрашивает мой аккаунт Яндекса. У&nbsp;меня нет такого, что мне делать?</div>
+              <div class="accordion-row__header" data-accordion-header>Если мне не понравится, я смогу вернуть деньги?</div>
               <div class="accordion-row__content" data-accordion-content>
-                <p>По умолчанию мы принимаем оплату через банковскую карту с использованием сервиса Яндекс.Касса, поэтому система и предлагает вам авторизоваться в Яндексе.</p>
-                <p>Первый способ решения этой проблемы: выбрать способ оплаты Интеркасса либо Robox (Робокасса), далее - оплата через банковскую карту.</p>
-                <p>Второй способ: написать автору курса в соцсетях, он вышлет вам свой номер карты Сбербанка и вы без проблем произведете оплату курса.</p>
+                <p>Первая встреча бесплатная. На ней вы принимаете решение о том, насколько вам подходит такой формат обучения.</p>
               </div>
             </div>
 
             <div class="accordion-row" data-accordion-row>
-              <div class="accordion-row__header" data-accordion-header>Я проживаю за границей. Могу ли я произвести оплату в национальной валюте?</div>
+              <div class="accordion-row__header" data-accordion-header>Что будет, если какое-то занятие я пропущу?</div>
               <div class="accordion-row__content" data-accordion-content>
-                <p>Конечно. Выберите способ оплаты Интеркасса либо Robox (Робокасса), далее - оплата через банковскую карту. При этом оплату вы будете производить в национальной валюте, и платежная система самостоятельно конвертирует ее в рубли по текущему курсу.</p>
-                <p>Вы также можете осуществить перевод через платежные системы Western Union, Money Gram (обычно используется клиентами из Европейского Союза и США) и Золотая Корона, Контакт, Юнистрим (страны СНГ, а также Грузия, Украина). Данные системы имеются в большинстве отделений банков, расположенных в том числе рядом с вашим домом.</p>
-                <p>Чтобы узнать реквизиты получателя средств в перечисленных выше системах, напишите автору курса в любой соцсети.</p>
+                <p>Максимальный эффект от занятий будет только при стабильном участии.</p>
+                <p>Но если в отдельные дни у вас не получится присутствовать на тренировке, ничего страшного не произойдет. Либо вы можете посетить занятие в другой день (например, в субботу вместо четверга).</p>
               </div>
             </div>
 
             <div class="accordion-row" data-accordion-row>
-              <div class="accordion-row__header" data-accordion-header>Я проживаю на Украине, и у нас не получается сделать перевод в Россию</div>
+              <div class="accordion-row__header" data-accordion-header>Чем Мастерская отличается от других ваших курсов</div>
               <div class="accordion-row__content" data-accordion-content>
-                <p>При оформлении заказа выберите способ оплаты Интеркасса. Далее вам будет предложено несколько подходящих вариантов. Но даже если они не помогут, вы всегда сможете сделать перевод через такие международные системы платежей, как Western Union, Money Gram и др.</p>
+                <p>В первую очередь тем, что здесь только практика. Теория будет только базовая: мы будем давать вам инструменты, которые сразу же вы будете применять. Плюс тут есть коммуникативные игры, что очень весело, интересно и уникально, потому что многие мы создаем сами.</p>
               </div>
             </div>
 
-            <div class="accordion-row" data-accordion-row>
-              <div class="accordion-row__header" data-accordion-header>А что делать, если я приобрету курс, а он мне не понравится?</div>
-              <div class="accordion-row__content" data-accordion-content>
-                <p>Гарантию возврата никто не отменял. Не устроит качество курса - без лишних вопросов вернем деньги.</p>
-              </div>
-            </div>
-
-            <div class="accordion-row" data-accordion-row>
-              <div class="accordion-row__header" data-accordion-header>Куда я могу обратиться, если во время изучения курса у меня возникнут вопросы?</div>
-              <div class="accordion-row__content" data-accordion-content>
-                <p>Автор курса всегда на связи - вы можете задавать ему любые вопросы, которые у вас появятся в процессе обучения.</p>
-              </div>
-            </div>
-
-            <div class="accordion-row" data-accordion-row>
-              <div class="accordion-row__header" data-accordion-header>Я опасаюсь совершать покупки через Интернет. Вдруг я отправлю деньги, но ничего не получу.</div>
-              <div class="accordion-row__content" data-accordion-content>
-                <p>При желании вы можете приобрести курс наложенным платежом. Оплачивать его вы будете на своем почтовом отделении, в момент получения бандероли с диском. К сожалению, в настоящее время возможность отправки курса наложенным платежом доступна только для граждан Российской Федерации.</p>
-              </div>
-            </div>
           </div>
         </div>
         <div class="section-faq__button">
@@ -595,7 +526,8 @@
         Напишите нам
       </div>
       <div class="modal__body">
-        <form action="/email/question" method="post" class="modal-form" data-from>
+        <form action="/email/question" method="post" class="modal-form" id="faq-form" data-from>
+          <input type="hidden" name="action" value="faq-form" />
           <div data-from-messages></div>
           <div class="modal-form__row">
             <input type='email' name='email' placeholder='E-mail*' class="ui-input" required />
@@ -625,6 +557,12 @@
     </div>
 
     <button class="ui-scrollup" data-scroll></button>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Валидация -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/additional-methods.min.js"></script>
 
     <script src="dist/scripts/bundle.js"></script>
   </div>
